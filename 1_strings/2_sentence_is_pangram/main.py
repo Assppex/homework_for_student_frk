@@ -9,4 +9,15 @@ pytest ./2_sentence_is_pangram/test.py
 
 
 def is_sentence_is_pangram(sentence: str) -> bool:
-    """Пишите ваш код здесь."""
+    
+    sentence = sentence.lower()
+    sentence.replace(" ", "")
+    alph = "abcdefghijklmnopqrstuvwxyz"
+    copied_alph_from_sentence = ''
+    
+    for ch in sentence:
+        if copied_alph_from_sentence.count(ch) == 0:
+            copied_alph_from_sentence += ch
+
+    copied_alph_from_sentence = ''.join(sorted(copied_alph_from_sentence))
+    return copied_alph_from_sentence == alph

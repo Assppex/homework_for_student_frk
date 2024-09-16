@@ -10,4 +10,14 @@ pytest ./3_maximum_number_of_words/test.py
 
 
 def get_max_number_of_words_from_sentences(sentences: list[str]) -> bool:
-    """Пишите ваш код здесь."""
+    
+    words = []
+    for sentence in sentences:
+        sentence.count(' ')
+        if len(sentence) != 0:
+            words.append(sentence.count(' ') + 1)
+        else:
+            words.append(0)
+    
+        
+    return max(words)

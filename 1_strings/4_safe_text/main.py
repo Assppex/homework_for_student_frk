@@ -19,7 +19,29 @@ def get_wrong_article() -> str:
 
 
 def recover_article() -> str:
+    
     wrong_article = get_wrong_article()
+    wrong_article = wrong_article.replace("!","")
+    wrong_article = wrong_article.lower()
+    
+    reversed_article = ''
+    index_of_str_start = -1
+    wrong_article = wrong_article.replace('foow-foow','tac')
+        
+    for i in range(0, len(wrong_article)):
+        if wrong_article[i] == '\n':
+            for j in range(i-2, index_of_str_start, -1):
+                if wrong_article[j] != '.':
+                        if j == i-2:
+                            reversed_article += wrong_article[j].upper()
+                            print(reversed_article)
+                        else:
+                            reversed_article += wrong_article[j]
+            index_of_str_start = i
+            reversed_article += '.\n'
+            
+    
+    wrong_article = reversed_article
 
     # Ваш код ниже, возвращайте уже отредактированный текст!
     return wrong_article
