@@ -15,7 +15,7 @@ def retry(count: int, delay : timedelta, handled_exceptions: tuple = ()):
                         prev_err = error
                     time.sleep(delay.total_seconds())
             else:
-                for retry_num in range(count):
+                for retry_num in range(0, count):
                     try:
                         return connect_function(args, kwargs)
                     except Exception as error:
@@ -27,9 +27,6 @@ def retry(count: int, delay : timedelta, handled_exceptions: tuple = ()):
     return real_retry_decorator
                                     
                 
-                
-    
-    
 # @retry(count: int, delay: timedelta, handled_exceptions: tuple[type(Exceptions)])----> retry не совсем декоратор (но она возвращает его), 
 # поэтому пишем не @retry, а @retry(аргументы), потому что она возвращает декоратор, который декорирует некоторую
 # функцию коннекта. Декоратор принимает и возвращает функцию.

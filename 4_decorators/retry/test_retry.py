@@ -104,7 +104,7 @@ def test_call_function_with_exception_after_all_try(count_errors):
         stub.execute()
     result_time = time.monotonic() - start
     expected_time = timedelta(milliseconds=500).total_seconds() * count_errors
-    assert result_time < expected_time
+    assert result_time >= expected_time
     assert stub.total_calls == count_errors
 
 
