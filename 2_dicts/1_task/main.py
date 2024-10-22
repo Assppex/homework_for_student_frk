@@ -39,6 +39,7 @@ def get_parsed_employees_info() -> list[dict[str, int | str]]:
                 else:
                     tmp_dict[list_el[i]] = list_el[i + 1]
         print(tmp_dict)
+        parsed_employees_info.append(tmp_dict)
                 
     return parsed_employees_info
 
