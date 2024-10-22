@@ -1,4 +1,10 @@
-from itertools import batched as real_batched
+from itertools import islice
+
+def real_batched(iterable, n):
+    it = iter(iterable)
+    while batch := list(islice(it, n)):
+        yield batch
+
 
 import pytest
 
